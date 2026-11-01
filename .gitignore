@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.venv/
+venv/
+env/
+.python-version
+
+# 测试 / 静态检查
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# 构建产物
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+*.zip
+
+# 本地日志与临时文件
+*.log
+tmp/
+.tmp/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 本地配置、令牌、模型缓存（绝不提交）
+.env
+.env.*
+config.local.json
+.pdf_word_extractor/
+.paddlex/
+.paddleocr/
+*.token
+
+# 打包出的可执行文件
+*.exe
+*.msi

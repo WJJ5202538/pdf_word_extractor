@@ -1,0 +1,6 @@
+include README.md
+include requirements.txt
+include build.ps1
+include 启动程序.bat
+recursive-include docs *.md
+recursive-include tests *.py *.pdf

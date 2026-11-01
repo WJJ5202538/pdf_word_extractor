@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-word-extractor"
+version = "2.0.0"
+description = "Tkinter desktop app that extracts text, tables and metadata from PDF and Word files"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "PDF / Word Extractor contributors" }]
+keywords = ["pdf", "docx", "tkinter", "pdfplumber", "ocr", "paddleocr"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Win32 (MS Windows)",
+    "Environment :: X11 Applications",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Text Processing",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "pdfplumber==0.11.10",
+    "python-docx==1.2.0",
+]
+
+[project.optional-dependencies]
+# 可选：扫描页 / 表格结构识别。PaddlePaddle 目前只发布到 cp313。
+ocr = [
+    "pypdfium2==5.14.0",
+    "paddleocr==3.7.0",
+    "paddlepaddle==3.3.1",
+    "paddlex[ocr]==3.7.2",
+]
+dev = [
+    "build>=1.2",
+    "pytest>=8.0",
+    "ruff>=0.9",
+]
+
+[project.scripts]
+pdf-word-extractor = "pdf_word_extractor.app:main"
+
+[project.gui-scripts]
+pdf-word-extractor-gui = "pdf_word_extractor.app:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
